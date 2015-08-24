@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :pages, only: [:home]
-  resources :heros
+  resources :heros, only: [:index, :new, :create, :show, :update] do
+    resources :reservations, only: [:index, :new, :create, :show, :update]
+  end
+  resources :users, only: [:show, :create, :update, :destroy]
+  root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
