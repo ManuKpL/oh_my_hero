@@ -5,10 +5,10 @@ class ReservationsController < ApplicationController
   def create
   end
 
-  def new
+  def show
   end
 
-  def show
+  def new
   end
 
   def update
