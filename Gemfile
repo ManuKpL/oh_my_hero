@@ -16,6 +16,13 @@ gem 'simple_form'
 # validation of date range for reservation
 gem 'validates_overlap'
 
+# Add devise for log_in etc
+gem 'devise'
+
+# Add paperclip
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
