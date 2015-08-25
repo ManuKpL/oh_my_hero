@@ -11,7 +11,7 @@ class HerosController < ApplicationController
 
 
   def new
-
+    @hero = Hero.new(heros_params)
   end
 
   def create
@@ -35,7 +35,7 @@ class HerosController < ApplicationController
   end
 
   def heros_params
-    params.require(:hero).permit(:address, :id)
+    params.require(:hero).permit(:id, :name, :address, :description, :price, :user_id)
   end
 
   # strong params function
