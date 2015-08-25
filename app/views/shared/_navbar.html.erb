@@ -1,17 +1,13 @@
-<nav class="navbar-wagon">
+<nav class="navbar-wagon navbar-wagon-fixed <%= params[:action] == "home" ? "navbar-wagon-transparent" : "" %>" >
   <div class="container navbar-wagon-container">
 
-    <a href="">
-      <%= image_tag "logo.png" %>
-    </a>
+    <%= link_to (image_tag("logo.png")), root_path %>
+
 
     <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search for a superhero">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
+
     </form>
-    <hr>
+
     <% if user_signed_in? %>
       <%= link_to "", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
         <div class="icon-badge-container">
@@ -44,6 +40,8 @@
       </div>
     <% else %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <hr>
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <hr>
     <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
