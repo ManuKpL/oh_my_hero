@@ -1,9 +1,8 @@
 class HerosController < ApplicationController
 
   def index # query result
-    # need to validate city
-    #  migrate to add column address to hero
-    @heros = Hero.where("id")
+    # needs to validate address, time-availability
+    @heros = Hero.where("address = ?", params[:address])
   end
 
   def show
