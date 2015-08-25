@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :heros, only: [:index, :new, :create, :show, :update] do
     resources :reservations, only: [:index, :new, :create, :show, :update]
   devise_for :users
-  resources :users, only: [:show, :create, :update, :destroy]
+  resources :users, only: [:show, :update, :destroy]
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
