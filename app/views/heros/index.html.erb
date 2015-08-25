@@ -2,19 +2,21 @@
   <div class="sidebar">
     <!-- must display the search form -->
     <!-- must allow for a search edit and update -->
+    <p>TOTO</p>
   </div>
 </div>
 
-  <!-- container that loops over the heros list and displays query results -->
+<!-- display query results -->
 <div class="container">
   <div class="heros-list">
+  <!-- loop over @heros array -->
   <% @heros.each do |hero| %>
     <div class="row">
       <div class="col-xs-12 col-sm-3">
-        <h3>Profile Pictures</h3>
+        <%= image_tag hero.picture.url(:medium) %>
       </div>
-      <div class="col-xs-12 col-sm-9">
-        <h3>Description</h3>
+      <div class="col-xs-12 col-sm-9 text-center">
+        <%= hero.description%>
       </div>
     </div>
   <% end %>
