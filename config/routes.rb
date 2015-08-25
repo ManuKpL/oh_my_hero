@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:index, :create, :show, :update]
   end
   resources :users, only: [:show, :update, :destroy]
-  patch '/heros/:hero_id/reservations/:id/validate', to: 'reservations#validate', as: hero_reservation_validation
+  patch '/heros/:hero_id/reservations/:id/validate', to: 'reservations#validate', as: 'hero_reservation_validation'
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
