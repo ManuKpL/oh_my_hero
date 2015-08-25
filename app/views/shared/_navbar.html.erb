@@ -13,7 +13,7 @@
     </form>
     <hr>
     <% if user_signed_in? %>
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
+      <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
         <div class="icon-badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="icon-badge icon-badge-blue">3</div>
