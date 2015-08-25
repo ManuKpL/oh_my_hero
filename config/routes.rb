@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :pages, only: [:home]
   resources :heros, only: [:index, :new, :create, :show, :update] do
     resources :reservations, only: [:index, :new, :create, :show, :update]
+  end
   devise_for :users
   resources :users, only: [:show, :update, :destroy]
   root to: 'pages#home'
