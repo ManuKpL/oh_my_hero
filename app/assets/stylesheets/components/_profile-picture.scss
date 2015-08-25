@@ -1,0 +1,18 @@
+.profile-picture {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin: auto;
+  top: -15px;
+  right: -15px;
+  border-radius: 50%;
+  border: 3px solid rgb(230,230,230);
+  box-shadow: 1px 0px 1px rgb(180,180,180);
+  &-small {
+    width: 100px;
+    height: 100px;
+  }
+}

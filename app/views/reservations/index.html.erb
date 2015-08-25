@@ -8,7 +8,9 @@
         <%- @reservations.each do |reservation| %>
           <div class="col-xs-12 col-md-6">
             <div class="content-item">
-              <h4><%= image_tag reservation.hero.picture.url(:thumb), class: "profile-picture profile-picture-small" %> | <%= reservation.hero.name %></h4>
+              <div class="profile-picture profile-picture-small", style="background-image: url('<%= reservation.hero.picture.url(:large) %>')">
+              </div>
+              <h3><%= reservation.hero.name %></h3>
               <p><%= reservation.hero.description %></p>
               <hr>
               <p>
