@@ -1,36 +1,37 @@
-<div class="container">
+<div class="text-center container">
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-4">
-            <%= image_tag @hero.picture.url(:medium), class: "profile-picture" %>
-            <h4><%= @hero.name %></h4>
-            <hr>
-            <p><%= @hero.description %></p>
-            <hr>
-            <p><%= @hero.address %></p>
-          </div>
-          <div class="col-xs-12 col-md-4">
-            <% if @reservation.id %>
-              <span class="validation">Validated</span>
-              <% else %>
-              <span class="validation">Pending</span>
-            <% end %>
-            <h4>Reservation</h4>
-            <p>from <%= @reservation.check_in %></p>
-            <p>to <%= @reservation.check_out %></p>
-            <hr>
-            <p>Price per day: <%= @hero.price %></p>
-          </div>
-          <div class="col-xs-12 col-md-4">
-            <%= image_tag @user.picture.url(:medium).include?("missing") ? "user-placeholder.jpg" : @user.picture.url(:medium), class: "profile-picture" %>
-            <h4><%= @user.name %></h4>
-            <hr>
-            <p><%= @user.email %></p>
-            <hr>
-            <p><%= @user.phone_number %></p>
-          </div>
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="padded">
+          <%= link_to "See my reservations", user_reservations_path(@user), class: "btn btn-primary" %>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <%= image_tag @hero.picture.url(:medium), class: "profile-picture" %>
+          <h4><%= @hero.name %></h4>
+          <hr>
+          <p><%= @hero.description %></p>
+          <hr>
+          <p><%= @hero.address %></p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <% if @reservation.validated %>
+            <span class="validation">Validated</span>
+            <% else %>
+            <span class="validation">Pending</span>
+          <% end %>
+          <h4>Reservation</h4>
+          <p>from <%= @reservation.check_in %></p>
+          <p>to <%= @reservation.check_out %></p>
+          <hr>
+          <p>Price per day: <%= @hero.price %></p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <%= image_tag @user.picture.url(:medium).include?("missing") ? "user-placeholder.jpg" : @user.picture.url(:medium), class: "profile-picture" %>
+          <h4><%= @user.name %></h4>
+          <hr>
+          <p><%= @user.email %></p>
+          <hr>
+          <p><%= @user.phone_number %></p>
         </div>
       </div>
     </div>
