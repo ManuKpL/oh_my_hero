@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :pages, only: [:home]
   resources :heros, only: [:index, :new, :create, :show, :update] do
-    resources :reservations, only: [:index, :create, :show, :update]
+    resources :reservations, only: [:create, :show, :update]
   end
-  resources :users, only: [:show, :update, :destroy]
+  resources :users, only: [:show, :update, :destroy] do
+    resources :reservations, only: [:index]
+  end
   patch '/heros/:hero_id/reservations/:id/validate', to: 'reservations#validate', as: 'hero_reservation_validation'
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
