@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
-Hero.destroy_all
 
 users = [
   { name:"Peter Parker", email: "peter@spidey.com", password: "testtest", phone_number: "0660488231" },
