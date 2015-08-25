@@ -14,11 +14,11 @@ users = [
   { name:"Tony Stark", email: "tony@iron.com", password: "testtest", phone_number: "0660488234" },
   { name:"Bruce Wayne", email: "bruce@bat.com", password: "testtest", phone_number: "0661488231" },
   { name:"David Lisewski", email: "david@kick.com", password: "testtest", phone_number: "0666488231" },
-  { name:"Selina Kyle", email: "selina@kitty.com", password: "testtest", phone_number: "0665478231" }
+  { name:"Selina Kyle", email: "selina@kitty.com", password: "testtest", phone_number: "0665478231" },
+  { name:"Bob Doe", email: "bob@gmail.com", password: "testtest", phone_number: "0607080910" }
 ]
 
 users_with_id = []
-
 users.each do |user|
   users_with_id << User.create(user)
 end
@@ -32,5 +32,14 @@ heros = [
   { name:"Catwoman", address: "New York", description: "The hottest super-hero ever. A niight with her will be expensive...", price: 290, picture: File.open("#{Rails.root}/app/assets/images/heroes/catwoman.jpg"), user_id: users_with_id[5].id }
 ]
 
-heros.each { |hero| Hero.create(hero) }
+heros_with_id = []
+heros.each do |hero|
+  heros_with_id << Hero.create(hero)
+end
 
+reservations = [
+  { check_in: Date.new(2015,5,1), check_out: Date.new(2015,5,3), hero_id: heros_with_id[0].id, user_id: users_with_id[6].id },
+  { check_in: Date.new(2015,6,1), check_out: Date.new(2015,6,3), hero_id: heros_with_id[0].id, user_id: users_with_id[6].id }
+]
+
+reservations.each { |reservation| Reservation.create(reservation) }
