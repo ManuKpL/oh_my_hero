@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-4">
-            <%= image_tag @hero.picture.url(:thumb), class: "profile-picture" %>
+            <%= image_tag @hero.picture.url(:medium), class: "profile-picture" %>
             <h4><%= @hero.name %></h4>
             <hr>
             <p><%= @hero.description %></p>
@@ -24,7 +24,7 @@
             <p>Price per day: <%= @hero.price %></p>
           </div>
           <div class="col-xs-12 col-md-4">
-            <%= image_tag @user.picture.url(:thumb), class: "profile-picture" %>
+            <%= image_tag @user.picture.url(:medium).include?("missing") ? "user-placeholder.jpg" : @user.picture.url(:medium), class: "profile-picture" %>
             <h4><%= @user.name %></h4>
             <hr>
             <p><%= @user.email %></p>
