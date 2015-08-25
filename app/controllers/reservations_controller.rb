@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :update]
-  before_action :set_hero
+  before_action :set_hero, only: [:show, :update, :create]
 
   def index
-    @reservations = @hero.reservations
+    @reservations = User.find(params[:user_id]).reservations
   end
 
   def show
