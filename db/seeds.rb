@@ -38,8 +38,8 @@ heros.each do |hero|
 end
 
 reservations = [
-  { check_in: Date.new(2015,5,1), check_out: Date.new(2015,5,3), hero_id: heros_with_id[0].id, user_id: users_with_id[6].id },
-  { check_in: Date.new(2015,6,1), check_out: Date.new(2015,6,3), hero_id: heros_with_id[0].id, user_id: users_with_id[6].id }
+  { check_in: Date.new(2015,5,1), check_out: Date.new(2015,5,3), hero_id: heros_with_id[0].id, user_id: users_with_id[6].id, validated: false },
+  { check_in: Date.new(2015,6,1), check_out: Date.new(2015,6,3), hero_id: heros_with_id[0].id, user_id: users_with_id[6].id, validated: false }
 ]
 
 reservations.each { |reservation| Reservation.create(reservation) }
