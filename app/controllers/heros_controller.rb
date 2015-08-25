@@ -1,5 +1,5 @@
 class HerosController < ApplicationController
-  before_action :set_hero, only[:show, :edit, :update, :destroy]
+  before_action :set_hero, only: [:show, :edit, :update, :destroy]
 
   def index # query result
     # needs to validate address, time-availability
