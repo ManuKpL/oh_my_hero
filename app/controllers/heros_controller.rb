@@ -16,14 +16,12 @@ class HerosController < ApplicationController
 
   def create # not tested at all
     @hero = Hero.new(heros_params)
-    @hero.save
+    @hero.save ? (redirect_to hero_path(@hero)) : (render 'heros/new')
   end
 
-  # We will see about edit update and destroy later
+  # We will see about edit, update and destroy later
 
-
-  # def edit
-  # end
+  # edit will be on user/show
 
   # def update
   # end
