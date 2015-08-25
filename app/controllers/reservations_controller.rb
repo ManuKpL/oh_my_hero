@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :update]
+  before_action :set_reservation, only: [:show, :update, :validate]
   before_action :set_hero, only: [:show, :update, :create]
 
   def index
@@ -18,6 +18,12 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation.update(reservation_params) ? (redirect_to hero_reservation_path(@reservation)) : (render :show)
+  end
+
+  def validate
+    @reservation.validated = true
+    @reservation.save
+    redirect_to hero_reservation_path(params[:hero_id], @reservation.id)
   end
 
   private

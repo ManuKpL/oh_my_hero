@@ -33,6 +33,9 @@
           <hr>
           <p><%= @user.phone_number %></p>
         </div>
+        <div class="padded">
+          <%= link_to "Validate reservations", hero_reservation_validation_path(@hero.id, @reservation.id), method: :patch, class: "btn btn-success" %>
+        </div>
       </div>
     </div>
   </div>
