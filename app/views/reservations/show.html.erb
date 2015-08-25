@@ -12,7 +12,16 @@
             <p><%= @hero.address %></p>
           </div>
           <div class="col-xs-12 col-md-4">
-
+            <% if @reservation.id %>
+              <span class="validation">Validated</span>
+              <% else %>
+              <span class="validation">Pending</span>
+            <% end %>
+            <h4>Reservation</h4>
+            <p>from <%= @reservation.check_in %></p>
+            <p>to <%= @reservation.check_out %></p>
+            <hr>
+            <p>Price per day: <%= @reservation.price %></p>
           </div>
           <div class="col-xs-12 col-md-4">
             <%= image_tag @user.picture.url(:thumb), class: "profile-picture" %>
