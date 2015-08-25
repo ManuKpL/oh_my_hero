@@ -1,29 +1,35 @@
 class HerosController < ApplicationController
-  def index
-    @heros = Hero.all
+  before_action :set_hero, only[:show, :edit, :update, :destroy]
+
+  def index # query result
+    # needs to validate address, time-availability
+    @heros = Hero.where("address = ?", params[:address])
   end
 
   def show
-
   end
 
 
   def new
-
+    @hero = Hero.new(heros_params)
   end
 
-  def create
+  def create # not tested at all
+    @hero = Hero.new(heros_params)
+    @hero.save
   end
 
+  # We will see about edit update and destroy later
 
-  def edit
-  end
 
-  def update
-  end
+  # def edit
+  # end
 
-  def destroy
-  end
+  # def update
+  # end
+
+  # def destroy
+  # end
 
 
   private
@@ -31,4 +37,10 @@ class HerosController < ApplicationController
   def set_hero
     @hero = Hero.find(params[:id])
   end
+
+  def heros_params
+    params.require(:hero).permit(:id, :name, :address, :description, :price, :user_id)
+  end
+
+  # strong params function
 end
