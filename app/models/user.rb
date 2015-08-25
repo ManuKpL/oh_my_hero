@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :reservations
-  has_many :heros
+  has_many :reservations, dependent: :destroy
+  has_many :heros, dependent: :destroy
 
   #validates_presence_of :email, :password
   #validates :email, format: { with: /\A\w+\.?\w+@[a-z]+\.[a-z]{2,3}\z/ }
