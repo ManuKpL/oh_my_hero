@@ -25,9 +25,9 @@
 
       <div class="content-item text-center">
         <%= simple_form_for [@hero, @reservation] do |f| %>
-          <%= f.input :check_in, as: :date, placeholder: "La date d'aujourd'hui" %>
-          <%= f.input :check_out, as: :date,  placeholder: "La date d'un jour dans longtemps!"%>
-          <%= link_to "BOOK", hero_reservations_path(@hero), {class: "btn btn-primary"} %>
+          <%= f.input :check_in, as: :date %>
+          <%= f.input :check_out, as: :date %>
+          <%= f.submit method: :post, class: "btn btn-success" %>
         <%end %>
         <h3>Total price: <%= @hero.price%> Euros</h3>
       </div>
