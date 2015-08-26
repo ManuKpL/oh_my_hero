@@ -23,6 +23,9 @@ gem 'devise'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 
+# Geocoder
+gem "geocoder"
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
