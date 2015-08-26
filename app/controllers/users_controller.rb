@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    raise
     redirect_to user_path(@user)
   end
 
