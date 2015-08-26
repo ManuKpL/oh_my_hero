@@ -1,20 +1,30 @@
 <!-- display query results -->
-<div class="container">
-  <div class="heros-list">
-
-  HEO
+<div class="container padded">
+  <div class="row">
   <!-- loop over @heros array -->
   <% @heros.each do |hero| %>
-    <div class="row">
-      <div class="col-xs-12 col-sm-3">
-        <%= image_tag hero.picture.url(:medium) %>
+
+   <div class="col-xs-12 col-md-4">
+      <div class="card">
+        <span class="card-bg" style="background-image: url('<%= hero.picture.url(:large) %>')"></span>
+        <span class="card-shadow"></span>
+        <span class="card-description">Popular</span>
+        <span class="card-text">
+          <h3><%= hero.name%></h3>
+          <p><%= hero.description%></p>
+        </span>
+        <span class="card-user">
+          <img src='user.jpg' class="avatar avatar-bordered"/>
+        </span>
+        <a href="#" class="card-link"></a>
+        <!-- replace with link to hero_show -->
       </div>
-      <div class="col-xs-12 col-sm-9 text-left">
-        <h3><%= hero.name%></h3>
-        <p><%= hero.description%></p>
-      </div>
-    </div>
+
+        </div>
   <% end %>
+
+
   </div>
 </div>
+
 
