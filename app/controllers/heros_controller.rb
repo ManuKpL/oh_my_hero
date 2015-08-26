@@ -7,6 +7,7 @@ class HerosController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
   end
 
 
