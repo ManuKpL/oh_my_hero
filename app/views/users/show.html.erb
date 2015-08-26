@@ -10,28 +10,21 @@
           <% end %>
         </h2>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-1">
-        <h3>
-          PROFILE PICTURE
-        </h3>
+      <div class="col-xs-4">
+        <div class="col-xs-4 col-xs-offset-1">
+          <div class="profile-picture", style="background-image: <%= @user.picture.url(:medium).include?("missing") ? 'url("@user.picture.url(:medium)")' : 'image-url("user-placeholder.jpg")' %>)"></div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-4 col-xs-offset-1">
-        <div class="profile-picture", style="background-image: <%= @user.picture.url(:medium).include?("missing") ? 'url("@user.picture.url(:medium)")' : 'image-url("user-placeholder.jpg")' %>)"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3 col-xs-offset-1">
         <h3>
           INFORMATIONS
         </h3>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-3 col-xs-offset-1">
+      <div class="col-xs-4 col-xs-offset-1">
         <p>
           <div id="user-details">
             <%= @user.name %>
@@ -39,6 +32,16 @@
             <%= @user.phone_number %>
           </div>
         <p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <div class="simple-form">
+          <%= simple_form_for @user do |f| %>
+           <%= f.input :picture, label:"Update picture"  %>
+           <%= f.button :submit, "Upload", class:"btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
