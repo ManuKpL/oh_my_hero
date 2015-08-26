@@ -29,7 +29,6 @@ class HerosController < ApplicationController
   # def destroy
   # end
 
-
   private
 
   def set_hero
