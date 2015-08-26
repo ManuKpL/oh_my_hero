@@ -18,6 +18,11 @@
   &-logo {
     width: 50px;
   }
+  &-title {
+    flex: 0 1 auto;
+    cursor: pointer;
+    padding: 0 10px;
+  }
   &-container {
     display: flex;
     height: 70px;
