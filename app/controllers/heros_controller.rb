@@ -3,7 +3,7 @@ class HerosController < ApplicationController
 
   def index # query result
     # needs to validate address, time-availability
-    @heros = Hero.where("address = ?", params[:address])
+    @heros = Hero.all
   end
 
   def show
