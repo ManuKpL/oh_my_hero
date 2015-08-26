@@ -1,16 +1,48 @@
-<div class="container">
+
 
 <!-- banner -->
 
-<div class="banner text-center" style="background-image: url('product.jpg')">
-  <div class="banner-shadow"></div>
-  <div class="banner-content">
-    <h1>Some Stuff</h1>
-    <p>Very cool stuff, useful and smart</p>
-    <a class="btn btn-primary btn-lg">GET IT</a>
+<div class="hero-banner text-center" style="background-image: url('<%= @hero.picture.url(:large) %>')">
+  <div class="hero-banner-shadow"></div>
+  <div class="hero-banner-content">
+    <h1><%= @hero.name %></h1>
+    <p><%= @hero.description %></p>
+    <a class="btn btn-primary btn-lg">BOOK ME</a>
   </div>
 </div>
 
 
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <div class="profile-picture">
+          <!-- link to the good picture -->
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+
+      <div class="content-item">
+          <h3><%= @hero.name %></h3>
+          <p><%= @hero.description %></p>
+      </div>
+
+    </div>
+
+    <!-- price on the right -->
+    <div class="col-xs-12 col-sm-2">
+
+      <div class="content-item text-center">
+
+          <h3><%= @hero.price %>Euros</h3>
+           <a class="btn btn-primary">BOOK</a>
+      </div>
+
+    </div>
+
+
+  </div>
 </div>
+
+
+
