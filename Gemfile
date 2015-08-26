@@ -23,6 +23,8 @@ gem 'devise'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 
+gem 'omniauth-facebook'
+
 # Geocoder
 gem "geocoder"
 
