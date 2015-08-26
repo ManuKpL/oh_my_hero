@@ -7,7 +7,7 @@
           <% if @user == current_user %>
             YOUR PROFILE
           <% else %>
-            <%= @user.name %> PROFILE
+            <%= @user.first_name @user.last_name %> PROFILE
           <% end %>
         </h2>
       </div>
@@ -29,9 +29,13 @@
         <p>
           <div id="user-details">
             <p>
-              <% if @user.name %>
-              <%= @user.name %>
-            <% end %>
+              <% if @user.first_name %>
+                <%= @user.first_name %>
+              <% end %>
+              <%= " " %>
+              <% if @user.last_name %>
+                <%= @user.last_name %>
+              <% end %>
             </p>
             <p>
               <% if @user.email %>
@@ -63,7 +67,8 @@
       </div>
       <div class="col-xs-12 col-md-4 col-md-offset-1">
         <%= simple_form_for @user do |f| %>
-          <%= f.input :name %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
           <%= f.input :email %>
           <%= f.input :phone_number %>
           <%= f.input :picture, label:"Update picture"  %>
