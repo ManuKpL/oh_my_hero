@@ -2,6 +2,7 @@
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
+  z-index: 10;
   &-fixed {
     position: fixed;
     z-index: 1;
@@ -13,6 +14,10 @@
     color: white;
     a {
       color: white;
+    }
+    .btn {
+      background-color: $brand-primary;
+      border: 1px solid rgb(240,240,240);
     }
   }
   &-logo {
@@ -81,15 +86,15 @@
     padding: 0 20px;
     border-radius: 20em;
     line-height: 40px;
-    background-color: $red;
-    color: white;
+    background-color: white;
+    color: $brand-primary;
     font-size: 14px;
-    border: 2px solid #F40303;
+    border: 2px solid $brand-primary;
 
     &:hover {
       color: white;
-      background: $brand-color;
-      border-color: darken($brand-color, 10%);
+      background: darken($brand-primary, 10%);
+      border-color: darken($brand-primary, 20%);
     }
   }
   &-dropdown-menu {
