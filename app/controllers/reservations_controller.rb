@@ -13,7 +13,9 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.hero = @hero
-    @reservation.save ? (redirect_to hero_reservation_path(@reservation)) : (render 'heros/show')
+    @reservation.validated = false
+    @reservation.customer = current_user
+    @reservation.save ? (redirect_to hero_reservation_path(@reservation.hero_id, @reservation.id)) : (render 'heros/show')
   end
 
   def update
