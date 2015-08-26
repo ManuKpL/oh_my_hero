@@ -21,8 +21,10 @@
   &-title {
     flex: 0 1 auto;
     cursor: pointer;
-    padding: 0 10px;
+    padding-top: 30px;
     font-family: 'Raleway', sans-serif;
+    color: #1e1e1e;
+    font-size: 20px;
   }
   &-container {
     display: flex;
