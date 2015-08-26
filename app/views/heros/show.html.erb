@@ -9,32 +9,22 @@
     <p><%= @hero.description %></p>
   </div>
 </div>
-
-
-
 <div class="container-fluid">
+  <div class="content-background"></div>
   <div class="row">
-    <div class="col-xs-12 col-sm-2">
-      <div class="profile-picture">
-          <!-- link to the good picture -->
-      </div>
-    </div>
-
     <!-- price on the right -->
-    <div class="col-xs-12 col-sm-4">
-
-      <div class="content-item text-center">
+    <div class="col-xs-12 col-md-4 col-md-offset-4">
+      <div class="content-item text-center" style="margin-top: 40px">
         <%= simple_form_for [@hero, @reservation] do |f| %>
           <%= f.input :check_in, as: :date %>
           <%= f.input :check_out, as: :date %>
           <%= f.submit method: :post, class: "btn btn-success" %>
         <%end %>
-        <h3>Total price: <%= @hero.price%> Euros</h3>
+        <h3>Price per day: <%= @hero.price%> €</h3>
+          <!-- link to the good picture -->
+        <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
       </div>
-
     </div>
-
-
   </div>
 </div>
 
