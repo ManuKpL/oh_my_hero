@@ -1,4 +1,47 @@
-<h1>User Profile</h1>
+<div class="user-profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-1">
+        <h2 class ="user-profile-title">
+          <% if @user == current_user %>
+            YOUR PROFILE
+          <% else %>
+            <%= @user.name %> PROFILE
+          <% end %>
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-1">
+        <h3>
+          PROFILE PICTURE
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-1">
+        <div class="profile-picture", style="background-image: <%= @user.picture.url(:medium).include?("missing") ? 'url("@user.picture.url(:medium)")' : 'image-url("user-placeholder.jpg")' %>)"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-1">
+        <h3>
+          INFORMATIONS
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-1">
+        <p>
+          <div id="user-details">
+            <%= @user.name %>
+            <%= @user.email %>
+            <%= @user.phone_number %>
+          </div>
+        <p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= current_user.name %>
