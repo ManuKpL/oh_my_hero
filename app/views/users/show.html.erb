@@ -1,5 +1,6 @@
 <div class="user-profile">
-  <div class="container">
+</div>
+  <div class="container padded">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-1">
         <h2 class ="user-profile-title">
@@ -12,7 +13,7 @@
       </div>
       <div class="col-xs-4">
         <div class="col-xs-4 col-xs-offset-1">
-          <div class="profile-picture", style="background-image: <%= @user.picture.url(:medium).include?("missing") ? 'url("@user.picture.url(:medium)")' : 'image-url("user-placeholder.jpg")' %>)"></div>
+          <div class="profile-picture", style="background-image: url('<%= @user.picture.url(:medium)%>')"></div>
         </div>
       </div>
     </div>
@@ -27,24 +28,51 @@
       <div class="col-xs-4 col-xs-offset-1">
         <p>
           <div id="user-details">
-            <%= @user.name %>
-            <%= @user.email %>
-            <%= @user.phone_number %>
+            <p>
+              <% if @user.name %>
+              <%= @user.name %>
+            <% end %>
+            </p>
+            <p>
+              <% if @user.email %>
+              <i class="fa fa-envelope">   <%= @user.email %></i>
+              <% end %>
+            </p>
+            <p>
+              <% if @user.phone_number %>
+                <i class="fa fa-phone">    <%= @user.phone_number %></i>
+              <% end %>
+            </p>
           </div>
         <p>
       </div>
     </div>
     <div class="row">
+      <div class="col-xs-4 col-xs-offset-1">
+        <div class="link-btn">
+          <%= link_to 'See my reservations', user_reservations_path(@user), class:"btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="simple-form">
+      <div class="col-xs-12 col-xs-offset-1">
+        <h3>
+          UPDATE PROFILE INFORMATIONS
+        </h3>
+      </div>
       <div class="col-xs-12 col-md-4 col-md-offset-1">
-        <div class="simple-form">
-          <%= simple_form_for @user do |f| %>
-           <%= f.input :picture, label:"Update picture"  %>
-           <%= f.button :submit, "Upload", class:"btn btn-primary" %>
-          <% end %>
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :name %>
+          <%= f.input :email %>
+          <%= f.input :phone_number %>
+          <%= f.input :picture, label:"Update picture"  %>
+          <%= f.button :submit, "Upload", class:"btn btn-primary" %>
+        <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
+
 
 

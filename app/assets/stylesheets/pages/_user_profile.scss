@@ -1,16 +1,13 @@
-.user-profile {
-  margin-top: 70px;
-  padding : 5em;
-  background-color: $gray-lighter;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  right: 0;
-  left: 0;
-  &-title {
-  }
-}
 
 .simple-form {
   margin-top: 40px;
 }
+
+.link-btn {
+  margin-top: 20px;
+}
+
+body {
+  background-color: $gray-lighter;
+}
+
