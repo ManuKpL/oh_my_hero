@@ -1,13 +1,15 @@
 <nav class="navbar-wagon navbar-wagon-fixed <%= params[:action] == "home" ? "navbar-wagon-transparent" : "" %>" >
   <div class="container navbar-wagon-container">
 
-    <div class="navbar-wagon-logo">
-      <%= link_to (image_tag("logo.png")), root_path %>
-    </div>
 
-    <div class="navbar-wagon-title">
-      <p>OH MY HERO!</p>
-    </div>
+      <div class="navbar-wagon-item navbar-wagon-logo">
+        <%= link_to (image_tag("logo.png")), root_path %>
+      </div>
+
+      <div class="navbar-wagon-item navbar-wagon-title">
+        <h3>OH MY HERO!</h3>
+      </div>
+
 
 
     <form action="" class="navbar-wagon-search">
@@ -18,7 +20,7 @@
       <%= link_to "", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
         <div class="icon-badge-container">
           <i class="fa fa-envelope-o"></i>
-          <div class="icon-badge icon-badge-blue">3</div>
+          <div class="icon-badge icon-badge">3</div>
         </div>
       <% end %>
       <hr>
