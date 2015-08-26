@@ -7,6 +7,7 @@ class HerosController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.new
   end
 
 
@@ -28,7 +29,6 @@ class HerosController < ApplicationController
 
   # def destroy
   # end
-
 
   private
 

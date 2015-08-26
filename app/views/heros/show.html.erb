@@ -1,16 +1,51 @@
-<div class="container">
+
 
 <!-- banner -->
 
-<div class="banner text-center" style="background-image: url('product.jpg')">
-  <div class="banner-shadow"></div>
-  <div class="banner-content">
-    <h1>Some Stuff</h1>
-    <p>Very cool stuff, useful and smart</p>
-    <a class="btn btn-primary btn-lg">GET IT</a>
+<div class="hero-banner text-center" style="background-image: url('<%= @hero.picture.url(:large) %>')">
+  <div class="hero-banner-shadow"></div>
+  <div class="hero-banner-content">
+    <h1><%= @hero.name %></h1>
+    <p><%= @hero.description %></p>
+    <a class="btn btn-primary btn-lg">BOOK ME</a>
   </div>
 </div>
 
 
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <div class="profile-picture">
+          <!-- link to the good picture -->
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+
+      <div class="content-item">
+          <h3><%= @hero.name %></h3>
+          <p><%= @hero.description %></p>
+      </div>
+
+    </div>
+
+    <!-- price on the right -->
+    <div class="col-xs-12 col-sm-4">
+
+      <div class="content-item text-center">
+        <%= simple_form_for [@hero, @reservation] do |f| %>
+          <%= f.input :check_in, placeholder: "La date d'aujourd'hui" %>
+          <%= f.input :check_out,  placeholder: "La date d'un jour dans longtemps!"%>
+          <%= link_to "BOOK", hero_reservations_path(@hero), {class: "btn btn-primary"} %>
+        <%end %>
+        <h3>Total price: <%= @hero.price%> Euros</h3>
+      </div>
+
+    </div>
+
+
+  </div>
 </div>
+
+
+
