@@ -1,0 +1,28 @@
+.profile-picture {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-image: image-url("user-placeholder.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid rgb(230,230,230);
+  box-shadow: 1px 0px 1px rgb(180,180,180);
+  z-index: 3;
+  &-right {
+    top: -15px;
+    right: -15px;
+  }
+  &-left {
+    top: -15px;
+    left: -15px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+  }
+}
