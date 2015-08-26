@@ -1,3 +1,13 @@
+.content-container .row {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 992px) {
+  .content-container .row {
+    flex-direction: column;
+    margin: 0px 10px;
+  }
+}
 .content-background {
   position: fixed;
   top: 0;
@@ -22,6 +32,7 @@
     text-shadow: 1.2px 1.2px 1px white;
   }
   hr {
-    margin: 1.5em;
+    margin: 1.5em 2em;
+    border-top: 2px solid white;
   }
 }

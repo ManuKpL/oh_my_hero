@@ -1,39 +1,48 @@
-<div class="text-center container">
-  <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <div class="row">
+<div class="content-container text-center">
+  <div class="content-background"></div>
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
         <div class="padded">
-          <%= link_to "See my reservations", user_reservations_path(@user), class: "btn btn-primary" %>
+          <%= link_to "See all my reservations", user_reservations_path(@user), class: "btn btn-primary" %>
         </div>
-        <div class="col-xs-12 col-md-4">
-          <%= image_tag @hero.picture.url(:medium), class: "profile-picture" %>
-          <h4><%= @hero.name %></h4>
-          <hr>
-          <p><%= @hero.description %></p>
-          <hr>
-          <p><%= @hero.address %></p>
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <div class="content-item">
+              <div class="profile-picture profile-picture-left", style="background-image: url('<%= @hero.picture.url(:medium) %>')"></div>
+              <h4><%= @hero.name %></h4>
+              <hr>
+              <p><%= @hero.description %></p>
+              <hr>
+              <p><%= @hero.address %></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="content-item">
+              <% if @reservation.validated %>
+                <span class="validation">Validated</span>
+                <% else %>
+                <span class="validation">Pending</span>
+              <% end %>
+              <hr>
+              <h4>Reservation</h4>
+              <p><%= @reservation.check_in.strftime("from %d/%m/%Y") %></p>
+              <p><%= @reservation.check_out.strftime("to %d/%m/%Y") %></p>
+              <hr>
+              <p>Price per day: <%= @hero.price %></p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="content-item">
+              <div class="profile-picture profile-picture-right", style="background-image: <%= @user.picture.url(:medium).include?("missing") ? 'url("@user.picture.url(:medium)")' : 'image-url("user-placeholder.jpg")' %>)"></div>
+              <h4><%= @user.name %></h4>
+              <hr>
+              <p><%= @user.email %></p>
+              <hr>
+              <p><%= @user.phone_number %></p>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-md-4">
-          <% if @reservation.validated %>
-            <span class="validation">Validated</span>
-            <% else %>
-            <span class="validation">Pending</span>
-          <% end %>
-          <h4>Reservation</h4>
-          <p>from <%= @reservation.check_in %></p>
-          <p>to <%= @reservation.check_out %></p>
-          <hr>
-          <p>Price per day: <%= @hero.price %></p>
-        </div>
-        <div class="col-xs-12 col-md-4">
-          <%= image_tag @user.picture.url(:medium).include?("missing") ? "user-placeholder.jpg" : @user.picture.url(:medium), class: "profile-picture" %>
-          <h4><%= @user.name %></h4>
-          <hr>
-          <p><%= @user.email %></p>
-          <hr>
-          <p><%= @user.phone_number %></p>
-        </div>
-        <div class="padded">
+        <div class="">
           <%= link_to "Validate reservations", hero_reservation_validation_path(@hero.id, @reservation.id), method: :patch, class: "btn btn-success" %>
         </div>
       </div>
