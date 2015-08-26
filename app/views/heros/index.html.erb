@@ -1,30 +1,32 @@
 <!-- display query results -->
-<div class="container padded">
+<div class="container-fluid">
+  <div class="content-background"></div>
   <div class="row">
-  <!-- loop over @heros array -->
-  <% @heros.each do |hero| %>
-
-   <div class="col-xs-12 col-md-4">
-      <div class="card">
-        <span class="card-bg" style="background-image: url('<%= hero.picture.url(:large) %>')"></span>
-        <span class="card-shadow"></span>
-        <span class="card-description">Popular</span>
-        <span class="card-text">
-          <h3><%= hero.name%></h3>
-          <p><%= hero.description%></p>
-        </span>
-        <span class="card-user">
-          <img src='user.jpg' class="avatar avatar-bordered"/>
-        </span>
-        <a href="" class="card-link"></a>
-        <%= link_to "", hero_path(hero), {class: "card-link"} %>
-        <!-- replace with link to hero_show -->
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="content-item content-item-title text-center">
+        <h1>Your results</h1>
       </div>
-
+      <div class="row">
+        <div class="content-item-flex">
+          <%- @heros.each do |hero| %>
+            <div class="col-xs-12 col-sm-6">
+              <div class="content-item">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <div class="profile-picture profile-picture-large profile-picture-squared" style="background-image: url('<%= hero.picture.url(:large) %>')"></div>
+                  </div>
+                  <div class="col-xs-8">
+                    <h3><%= hero.name%></h3>
+                    <p><%= hero.description%></p>
+                  </div>
+                </div>
+                <%= link_to "", hero_path(hero), class: "content-item-link" %>
+              </div>
+            </div>
+          <% end -%>
         </div>
-  <% end %>
-
-
+      </div>
+    </div>
   </div>
 </div>
 

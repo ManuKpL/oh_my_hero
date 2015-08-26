@@ -1,13 +1,3 @@
-.content-container .row {
-  display: flex;
-  align-items: center;
-}
-@media screen and (max-width: 992px) {
-  .content-container .row {
-    flex-direction: column;
-    margin: 0px 10px;
-  }
-}
 .content-background {
   position: fixed;
   top: 0;
@@ -30,6 +20,21 @@
     padding: 1em 0em;
     color: rgb(80,80,80);
     text-shadow: 1.2px 1.2px 1px white;
+  }
+  &-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    &:hover {
+      border: 2px solid rgb(100,100,100);
+    }
+  }
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
   }
   hr {
     margin: 1.5em 2em;
