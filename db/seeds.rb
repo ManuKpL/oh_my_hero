@@ -9,13 +9,13 @@
 User.destroy_all
 
 users = [
-  { name:"Peter Parker", email: "peter@spidey.com", password: "testtest", phone_number: "0660488231" },
-  { name:"Bruce Banner", email: "bruce@hulk.com", password: "testtest", phone_number: "0660588231" },
-  { name:"Tony Stark", email: "tony@iron.com", password: "testtest", phone_number: "0660488234" },
-  { name:"Bruce Wayne", email: "bruce@bat.com", password: "testtest", phone_number: "0661488231" },
-  { name:"David Lisewski", email: "david@kick.com", password: "testtest", phone_number: "0666488231" },
-  { name:"Selina Kyle", email: "selina@kitty.com", password: "testtest", phone_number: "0665478231" },
-  { name:"Bob Doe", email: "bob@gmail.com", password: "testtest", phone_number: "0607080910" }
+  { first_name:"Peter", last_name: "Parker", email: "peter@spidey.com", password: "testtest", phone_number: "0660488231" },
+  { first_name:"Bruce", last_name: "Banner", email: "bruce@hulk.com", password: "testtest", phone_number: "0660588231" },
+  { first_name:"Tony", last_name: "Stark", email: "tony@iron.com", password: "testtest", phone_number: "0660488234" },
+  { first_name:"Bruce", last_name: "Wayne", email: "bruce@bat.com", password: "testtest", phone_number: "0661488231" },
+  { first_name:"David", last_name: "Lisewski", email: "david@kick.com", password: "testtest", phone_number: "0666488231" },
+  { first_name:"Selina", last_name: "Kyle", email: "selina@kitty.com", password: "testtest", phone_number: "0665478231" },
+  { first_name:"Bob", last_name: "Doe", email: "bob@gmail.com", password: "testtest", phone_number: "0607080910" }
 ]
 
 users_with_id = []
