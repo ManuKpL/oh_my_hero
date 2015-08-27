@@ -9,8 +9,8 @@
 
   def show
     @reservation = Reservation.new
-    @alert_message = "You are viewing #{@hero.name}"
-    @flat_coordinates = { lat: @flat.lat, lng: @flat.lng }
+    # @alert_message = "You are viewing #{@hero.name}"
+    @hero_coordinates = @hero.address
   end
 
 

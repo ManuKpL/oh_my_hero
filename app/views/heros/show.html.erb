@@ -32,10 +32,12 @@
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
             $(document).ready(function() {
-              alert('<%= j @alert_message %>');
-            });
+              var coord = '<%= raw @hero_coordinates %>';
+                alert('He lives at ' + coord );
+              });
           <% end %>
         <% end %>
+
       </div>
     </div>
 
