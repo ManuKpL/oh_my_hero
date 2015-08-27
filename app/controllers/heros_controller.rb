@@ -1,14 +1,21 @@
-class HerosController < ApplicationController
+  class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :index
 
   def index # query result
-    # needs to validate address, time-
+    # needs to validate address, time-availability
     @heros = Hero.near(params[:search][:address], 10)
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@heros) do |hero, marker|
+      marker.lat hero.latitude
+      marker.lng hero.longitude
+    end
   end
 
   def show
     @reservation = Reservation.new
+    # @alert_message = "You are viewing #{@hero.name}"
+    @hero_coordinates = @hero.address
   end
 
   def new
