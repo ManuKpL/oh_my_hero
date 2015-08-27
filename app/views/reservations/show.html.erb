@@ -51,7 +51,7 @@
           <!-- User information -->
           <div class="col-xs-12 col-md-4">
             <div class="content-item">
-              <div class="profile-picture profile-picture-right", style="background-image: url('<%= @user.picture.url(:medium).include?("missing") ? "#{Rails.root}/app/assets/images/user-placeholder.jpg" : "@user.picture.url(:medium)" %>')"></div>
+              <div class="profile-picture profile-picture-right" style="background-image: url(<%= @user.picture.url(:medium) %>)"></div>
               <h4><%= @user.first_name %></h4>
               <hr>
               <p><%= @user.email %></p>
@@ -77,26 +77,15 @@
     <p>While you're at it, why don't you book another hero?</p>
 
     <div class="carousel">
-      <div>your content</div>
-      <div>your content</div>
-      <div>your content</div>
+      <div><h3>your content</h3></div>
+      <div><h3>your content</h3></div>
+      <div><h3>your content</h3></div>
     </div>
 
     <!-- go to index -->
       <p>Or you can consult our super-amazing repository!</p>
         <%= link_to "Go!", heros_path, class: "btn btn-primary" %>
     </div>
-
-
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.carousel').slick({
-          setting-name: setting-value
-        });
-      });
-    </script>
-
-
       </div>
     </div>
   </div>
