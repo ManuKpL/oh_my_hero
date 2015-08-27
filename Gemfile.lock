@@ -167,6 +167,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.3)
       sprockets-rails
+    rails-assets-jquery (2.1.4)
+    rails-assets-slick.js (1.5.8)
+      rails-assets-jquery (>= 1.7)
     rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -245,6 +248,7 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2.3)
+  rails-assets-slick.js!
   rails-assets-underscore!
   rails_12factor
   sass-rails (~> 5.0)
