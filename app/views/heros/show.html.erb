@@ -4,29 +4,39 @@
 
 <div class="hero-banner text-center" style="background-image: url('<%= @hero.picture.url(:large) %>')">
   <div class="hero-banner-shadow"></div>
-  <div class="hero-banner-content">
-    <h1><%= @hero.name %></h1>
-    <p><%= @hero.description %></p>
-  </div>
 </div>
 <div class="container-fluid">
   <div class="content-background"></div>
   <div class="row">
-    <!-- price on the right -->
-    <div class="col-xs-12 col-md-4 col-md-offset-4">
-      <div class="content-item text-center" style="margin-top: 40px">
-        <%= simple_form_for [@hero, @reservation] do |f| %>
-          <%= f.input :check_in, as: :date %>
-          <%= f.input :check_out, as: :date %>
-          <%= f.submit method: :post, class: "btn btn-success" %>
-        <%end %>
-        <h3>Price per day: <%= @hero.price%> €</h3>
-          <!-- link to the good picture -->
-        <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
-      </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-2">
+      <h2><%= @hero.name.upcase %></h2>
+      <h3><%= @hero.description %></h3>
+      <h3>Main Skill: <%= @hero.skill %></h3>
     </div>
+    <% if current_user.id == @hero.user_id %>
+      <%= link_to 'Edit my hero profile', edit_hero_path(hero), class:"btn btn-success" %>
+      <%= link_to "Delete", hero_path(hero), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% else %>
+      <div class="col-xs-12 col-md-4">
+        <div class="content-item text-center" style="margin-top: 40px">
+          <%= simple_form_for [@hero, @reservation] do |f| %>
+            <%= f.input :check_in, as: :date %>
+            <%= f.input :check_out, as: :date %>
+            <%= f.submit method: :post, class: "btn btn-success" %>
+          <%end %>
+          <h3>Price per day: <%= @hero.price%> €</h3>
+            <!-- link to the good picture -->
+          <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+    <!-- price on the right -->
+
 
 <!-- Google Map integration -->
+  <div class="row">
     <div class="col-xs-12 col-md-4">
       <div class="map">
         <% content_for(:after_js) do %>
@@ -37,9 +47,10 @@
               });
           <% end %>
         <% end %>
-
       </div>
     </div>
+  </div>
+
 
   </div>
 </div>

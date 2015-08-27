@@ -28,15 +28,17 @@
     @hero.save ? (redirect_to hero_path(@hero)) : (render 'heros/new')
   end
 
-  # We will see about edit, update and destroy later
+  def edit
+  end
 
-  # edit will be on user/show
+  def update
+    @hero.update(hero_params)
+  end
 
-  # def update
-  # end
-
-  # def destroy
-  # end
+  def destroy
+    @hero.destroy
+    redirect_to current_user_path(current_user)
+  end
 
   private
 

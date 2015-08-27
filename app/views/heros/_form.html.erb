@@ -1,0 +1,10 @@
+<%= simple_form_for(@hero) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, placeholder:"King Kong" %>
+  <%= f.input :skill, collection: Hero::SKILLS, prompt: "Main Skill" %>
+  <%= f.input :address, placeholder:"16 villa Gaudelet 75011 Paris" %>
+  <%= f.input :description, label:"Tell us a bit more", placeholder:"Hey, I am King Kong and I LOVE ironing! Please feel free to contact me." %>
+  <%= f.input :price, placeholder: "100$" %>
+  <%= f.input :picture %>
+  <%= f.button :submit, "Add your hero", class:"btn btn-primary" %>
+<% end %>
