@@ -17,6 +17,7 @@ class HerosController < ApplicationController
 
   def create # not tested at all
     @hero = Hero.new(heros_params)
+    @hero = current_user.heros.build(heros_params)
     @hero.save ? (redirect_to hero_path(@hero)) : (render 'heros/new')
   end
 
