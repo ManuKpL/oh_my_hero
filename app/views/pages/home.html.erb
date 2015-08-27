@@ -1,13 +1,17 @@
 <div class="banner text-center">
   <div class="banner-shadow"></div>
   <div class="banner-content">
-    <h1>Need a Superhero?</h1>
+    <h1>oh my hero!</h1>
+    <h3>The only website where you can rent a super hero to help you with your boring everyday tasks</h3>
+    </div>
+    <div class="banner-form">
     <%#= link_to "I WANT ONE",heros_path, {class: "btn btn-primary"} %>
     <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
       <div class="content-item-flex content-item-flex-justified">
         <%= f.input :address, label: false, placeholder: "Where?" %>
-        <%= f.input :skill, label: false, collection: Hero::SKILLS, prompt: "Main Skill" %>
         <%= f.input :check_in, label: false, placeholder: "Start date", :input_html => { :data => {:provide => :datepicker} } %>
+        <%= f.input :check_out, label: false, placeholder: "End date", :input_html => { :data => {:provide => :datepicker} } %>
+        <%= f.input :skill, label: false, collection: Hero::SKILLS, prompt: "Main Skill" %>
         <%= f.button :submit, "Search!", class: "btn btn-info" %>
     <% end %>
   </div>
