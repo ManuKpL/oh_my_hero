@@ -4,4 +4,7 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-datepicker
+//= require slick.js
 //= require_tree .
+
+
