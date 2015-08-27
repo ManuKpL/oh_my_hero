@@ -2,6 +2,11 @@
   <div class="banner-shadow"></div>
   <div class="banner-content">
     <h1>Need a Superhero?</h1>
-    <%= link_to "I WANT ONE",heros_path, {class: "btn btn-primary"} %>
+    <%#= link_to "I WANT ONE",heros_path, {class: "btn btn-primary"} %>
+    <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
+      <div class="content-item-flex content-item-flex-justified">
+        <%= f.input :address, label: false, placeholder: "Paris" %>
+        <%= f.button :submit, "Search!", class: "btn btn-info" %>
+    <% end %>
   </div>
 </div>
