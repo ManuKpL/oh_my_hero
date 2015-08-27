@@ -11,7 +11,7 @@
         <%= f.input :address, label: false, placeholder: "Where?" %>
         <%= f.input :check_in, label: false, placeholder: "Start date", :input_html => { :data => {:provide => :datepicker} } %>
         <%= f.input :check_out, label: false, placeholder: "End date", :input_html => { :data => {:provide => :datepicker} } %>
-        <%= f.input :skill, label: false, collection: Hero::SKILLS, prompt: "Main Skill" %>
+        <%= f.input :skill, label: false, collection: Hero::SKILLS, prompt: "What for?" %>
         <%= f.button :submit, "Search!", class: "btn btn-info" %>
     <% end %>
   </div>
