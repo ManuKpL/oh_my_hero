@@ -4,7 +4,7 @@
 
   def index # query result
     # needs to validate address, time-availability
-    @heros = select_heros
+    params? ? (@heros = select_heros) : (@heros = Hero.all)
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@heros) do |hero, marker|
       marker.lat hero.latitude
@@ -42,22 +42,26 @@
 
   private
 
+  def params?
+    params[:search]
+  end
+
   def set_hero
     @hero = Hero.find(params[:id])
   end
 
   # Selection method for search in home >> heros index
   def select_heros
-    heros_locate = Hero.near(search_params[:address], 10)
-    heros_locate_and_skill = heros_locate.where(skill: search_params[:skill])
-    check_in_data = search_params[:check_in].split("/").map { |e| e.to_i }
-    check_out_data = search_params[:check_out].split("/").map { |e| e.to_i }
+    (search_params[:address] == "") ? (hero_locate = Hero.all) : (heros_locate = Hero.near(search_params[:address], 10))
+    (search_params[:skill] == "") ? (heros_locate_and_skill = hero_locate) : (heros_locate_and_skill = heros_locate.where(skill: search_params[:skill]))
+    (search_params[:check_in] == "") ? (check_in_data = [1,1,3000]) : (check_in_data = search_params[:check_in].split("/").map { |e| e.to_i })
+    (search_params[:check_out] == "") ? (check_out_data = [1,1,3000]) : (check_out_data = search_params[:check_out].split("/").map { |e| e.to_i })
     heros = []
     heros_locate_and_skill.each do |hero|
       heros << hero if Reservation.new({
           check_in: Date.new(check_in_data[2],check_in_data[0],check_in_data[1]),
           check_out: Date.new(check_out_data[2],check_out_data[0],check_out_data[1]),
-          user_id: 7,
+          user_id: 1,
           hero_id: hero.id
         }).valid?
     end
