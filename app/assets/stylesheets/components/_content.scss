@@ -16,6 +16,7 @@
     background: linear-gradient(to right, rgb(40,40,40) 10%, rgb(20,20,20) 90%);
   }
 }
+
 .content-item {
   position: relative;
   padding: 2em;
@@ -32,6 +33,14 @@
       font-family: Bangers;
       letter-spacing: 6px;
       color: $yellow;
+      font-size: 60px;
+      font-weight: bold;
+      text-shadow: 1.2px 1.2px 1px black;
+    }
+    p {
+      font-family: Open-Sans;
+      letter-spacing: 1px;
+      color: rgb(30,30,30);
       font-size: 60px;
       font-weight: bold;
       text-shadow: 1.2px 1.2px 1px black;
