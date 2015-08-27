@@ -37,6 +37,16 @@
     position: relative;
     z-index: 2;
   }
+  &-form {
+    position: absolute;
+    z-index: 2;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .btn {
     height: 36px;
