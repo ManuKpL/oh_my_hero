@@ -5,7 +5,7 @@
     <%#= link_to "I WANT ONE",heros_path, {class: "btn btn-primary"} %>
     <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
       <div class="content-item-flex content-item-flex-justified">
-        <%= f.input :address, label: false, placeholder: "Paris" %>
+        <%= f.input :address, label: false, placeholder: "Where?" %>
         <%= f.button :submit, "Search!", class: "btn btn-info" %>
     <% end %>
   </div>
