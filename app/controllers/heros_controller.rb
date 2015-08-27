@@ -11,9 +11,8 @@ class HerosController < ApplicationController
     @reservation = Reservation.new
   end
 
-
   def new
-    @hero = Hero.new(heros_params)
+    @hero = Hero.new
   end
 
   def create # not tested at all
@@ -38,7 +37,7 @@ class HerosController < ApplicationController
   end
 
   def heros_params
-    params.require(:hero).permit(:id, :name, :address, :description, :price, :user_id)
+    params.require(:hero).permit(:id, :name, :address, :description, :price, :skill, :picture, :user_id)
   end
 
   # strong params function

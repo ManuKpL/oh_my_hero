@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826173639) do
+ActiveRecord::Schema.define(version: 20150827101339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150826173639) do
     t.datetime "picture_updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "skill"
   end
 
   add_index "heros", ["user_id"], name: "index_heros_on_user_id", using: :btree
