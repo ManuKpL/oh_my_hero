@@ -9,12 +9,13 @@
     <p><%= @hero.description %></p>
   </div>
 </div>
+
 <div class="container-fluid">
   <div class="content-background"></div>
   <div class="row">
     <!-- price on the right -->
     <div class="col-xs-12 col-md-4 col-md-offset-4">
-      <div class="content-item text-center" style="margin-top: 40px">
+      <div class="content-item text-center"  style="margin-top: 40px">
         <%= simple_form_for [@hero, @reservation] do |f| %>
           <%= f.input :check_in, as: :date %>
           <%= f.input :check_out, as: :date %>
@@ -33,7 +34,6 @@
           <%= javascript_tag do %>
             $(document).ready(function() {
               var coord = '<%= raw @hero_coordinates %>';
-                alert('He lives at ' + coord );
               });
           <% end %>
         <% end %>
