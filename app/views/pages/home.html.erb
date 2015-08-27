@@ -6,6 +6,7 @@
     <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
       <div class="content-item-flex content-item-flex-justified">
         <%= f.input :address, label: false, placeholder: "Where?" %>
+        <%= f.input :skill, collection: Hero::SKILLS, prompt: "Main Skill" %>
         <%= f.button :submit, "Search!", class: "btn btn-info" %>
     <% end %>
   </div>
