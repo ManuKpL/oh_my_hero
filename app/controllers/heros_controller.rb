@@ -1,4 +1,4 @@
-class HerosController < ApplicationController
+  class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :index
 
@@ -9,6 +9,7 @@ class HerosController < ApplicationController
 
   def show
     @reservation = Reservation.new
+    @alert_message = "You are viewing #{@hero.name}"
   end
 
 

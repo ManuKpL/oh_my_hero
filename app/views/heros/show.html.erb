@@ -25,6 +25,20 @@
         <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
       </div>
     </div>
+
+<!-- Google Map integration -->
+    <div class="col-xs-12 col-md-4">
+      <div class="map">
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            $(document).ready(function() {
+              alert('<%= j @alert_message %>');
+            });
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
 
