@@ -33,11 +33,12 @@
 
   def update
     @hero.update(hero_params)
+    redirect_to hero_path(@hero)
   end
 
   def destroy
     @hero.destroy
-    redirect_to current_user_path(current_user)
+    redirect_to user_path(current_user.id)
   end
 
   private

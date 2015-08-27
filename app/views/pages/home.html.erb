@@ -13,6 +13,7 @@
         <%= f.input :check_out, label: false, placeholder: "End date", :input_html => { :data => {:provide => :datepicker} } %>
         <%= f.input :skill, label: false, collection: Hero::SKILLS, prompt: "Main Skill" %>
         <%= f.button :submit, "Search!", class: "btn btn-info" %>
+      </div>
     <% end %>
   </div>
 </div>
