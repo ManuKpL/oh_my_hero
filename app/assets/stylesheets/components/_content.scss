@@ -67,6 +67,13 @@
     &-center {
       align-items: center;
     }
+    &-justified {
+      justify-content: center;
+    }
+    .form-group {
+      margin: 0;
+    }
+
   }
   hr {
     margin: 1.5em 2em;

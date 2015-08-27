@@ -4,7 +4,7 @@
 
   def index # query result
     # needs to validate address, time-availability
-    @heros = Hero.all
+    @heros = Hero.near(params[:search][:address], 10)
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@heros) do |hero, marker|
       marker.lat hero.latitude
@@ -17,7 +17,6 @@
     # @alert_message = "You are viewing #{@hero.name}"
     @hero_coordinates = @hero.address
   end
-
 
   def new
     @hero = Hero.new(heros_params)
@@ -44,9 +43,8 @@
     @hero = Hero.find(params[:id])
   end
 
+  # strong params method
   def heros_params
     params.require(:hero).permit(:id, :name, :address, :description, :price, :user_id)
   end
-
-  # strong params function
 end
