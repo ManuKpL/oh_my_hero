@@ -3,14 +3,13 @@ class HerosController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index # query result
-    # needs to validate address, time-availability
-    @heros = Hero.all
+    # needs to validate address, time-
+    @heros = Hero.near(params[:search][:address], 10)
   end
 
   def show
     @reservation = Reservation.new
   end
-
 
   def new
     @hero = Hero.new(heros_params)
@@ -37,9 +36,8 @@ class HerosController < ApplicationController
     @hero = Hero.find(params[:id])
   end
 
+  # strong params method
   def heros_params
     params.require(:hero).permit(:id, :name, :address, :description, :price, :user_id)
   end
-
-  # strong params function
 end
