@@ -22,9 +22,9 @@
     @hero = Hero.new
   end
 
-  def create # not tested at all
-    @hero = Hero.new(heros_params)
-    @hero = current_user.heros.build(heros_params)
+  def create
+    @hero = Hero.new(hero_params)
+    @hero = current_user.heros.build(hero_params)
     @hero.save ? (redirect_to hero_path(@hero)) : (render 'heros/new')
   end
 
@@ -45,7 +45,7 @@
   end
 
   # strong params method
-  def heros_params
+  def hero_params
     params.require(:hero).permit(:id, :name, :address, :description, :price, :skill, :picture, :user_id)
   end
 end
