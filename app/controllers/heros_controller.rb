@@ -5,6 +5,11 @@
   def index # query result
     # needs to validate address, time-availability
     @heros = Hero.all
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@heros) do |hero, marker|
+      marker.lat hero.latitude
+      marker.lng hero.longitude
+    end
   end
 
   def show
