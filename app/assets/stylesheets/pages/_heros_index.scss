@@ -1,0 +1,39 @@
+.display-map {
+  position: fixed;
+  top: 70px;
+  bottom: 45px;
+  width: 50%;
+  right: 0;
+}
+
+.title {
+  position: relative;
+  margin: 70px 0px 0px 0px;
+  padding: 1em 0;
+  color: rgb(240,240,240);
+  h2 {
+    font-family: Raleway;
+    letter-spacing: 5px;
+    color: $yellow;
+    text-shadow: 1.2px 1.2px 1px black;
+  }
+}
+
+.error-message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  color: $red;
+  flex-direction: column;
+  h1 {
+    font-size: 70px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 3px black;
+  }
+}
