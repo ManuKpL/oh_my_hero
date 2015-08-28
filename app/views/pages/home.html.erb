@@ -9,7 +9,7 @@
     <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
       <div class="content-item-flex content-item-flex-justified">
         <div class="banner-form-marged">
-          <%= f.input :address, label: false, placeholder: "Where?" %>
+          <%= f.input :address, label: false, placeholder: "Where?", :input_html => { :id => 'user_input_autocomplete_address' } %>
         </div>
         <div class="banner-form-marged">
           <%= f.input :check_in, label: false, placeholder: "Start date", input_html: { data: {provide: :datepicker} } %>
@@ -27,3 +27,6 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA8aCSTlmjbhPpZyVcZNNBfxMFWvbNhYFw ">
+</script>
