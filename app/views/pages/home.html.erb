@@ -9,7 +9,7 @@
     <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
       <div class="content-item-flex content-item-flex-justified">
         <div class="banner-form-marged">
-          <%= f.input :address, label: false, placeholder: "Where?" %>
+          <%= f.input :address, id: "user_input_autocomplete_address", label: false, placeholder: "Where?" %>
         </div>
         <div class="banner-form-marged">
           <%= f.input :check_in, label: false, placeholder: "Start date", input_html: { data: {provide: :datepicker} } %>
