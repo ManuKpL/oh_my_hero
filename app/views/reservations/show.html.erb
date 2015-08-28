@@ -54,7 +54,6 @@
               <p><%= @user.email %></p>
               <hr>
               <p><%= @user.phone_number %></p>
-              <%= link_to "View my profile", user_path(@user), method: :patch%>
             </div>
           </div>
         </div>
@@ -72,8 +71,9 @@
     <!-- go to index -->
     <div class="row">
         <p>Or you can consult our super-amazing repository!</p>
-          <%= link_to "Rent a Hero", heros_path, class: "btn btn-primary" %>
-      </div>
+        <%= link_to "Rent a Hero", heros_path, class: "btn btn-primary" %>
+    </div>
+    <div class="container-padded"></div>
     </div>
       </div>
     </div>
