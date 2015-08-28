@@ -13,7 +13,6 @@
     color: $yellow;
     font-size: 60px;
     font-weight: bold;
-    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
     font-family: Bangers;
     letter-spacing: 6px;
     text-shadow: 1px 1px #797979;
@@ -25,7 +24,7 @@
     margin-bottom: 18px;
   }
   &-shadow {
-    background-image: linear-gradient(-225deg, rgba(150,150,150,0.4) 30%, rgba(120,120,120,0.4) 70%);
+    background-image: linear-gradient(120deg, rgba(80,40,140,0.4) 30%, rgba(70,70,180,0.4) 70%);
     position: absolute;
     top: 0;
     bottom: 0;

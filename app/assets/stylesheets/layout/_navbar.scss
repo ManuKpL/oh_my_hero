@@ -1,6 +1,6 @@
-.navbar-wagon {
+.navbar {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: rgb(253,253,255);
   transition: all 0.3s ease;
   &-fixed {
     position: fixed;
@@ -9,14 +9,14 @@
     top: 0;
   }
   &-transparent {
-    background-color: rgba(150,150,150,0.4);
+    background-color: rgba(200,200,200,0.05);
     color: white;
     a {
       color: white;
     }
     .btn {
-      background-color: $brand-primary;
-      border: 1px solid rgb(240,240,240);
+      background-color: transparent;
+      border: 2px solid rgb(240,240,240);
     }
   }
   &-logo {
@@ -35,10 +35,32 @@
     height: 70px;
     align-items: center;
   }
+  &-group {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+  }
+  &-blank {
+    flex: 1 1 auto;
+    text-align: center;
+  }
   &-item {
     flex: 0 1 auto;
     cursor: pointer;
     padding: 0 10px;
+    &-title {
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: light;
+      font-family: Montserrat;
+      border-left: 1px solid white;
+      p {
+        margin: 0;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
   }
   &-search {
     flex: 1 1 auto;
@@ -74,16 +96,18 @@
   }
   &-link {
     color: #929799;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: light;
+    font-family: Montserrat;
     &:hover {
-      color: #da552f;
+      color: $red;
       text-decoration: none;
     }
   }
   &-button {
     margin-left: 10px;
     padding: 0 20px;
-    border-radius: 20em;
+    border-radius: 5px;
     line-height: 40px;
     background-color: white;
     color: $brand-primary;
@@ -91,9 +115,10 @@
     border: 2px solid $brand-primary;
 
     &:hover {
-      color: white;
-      background: darken($brand-primary, 10%);
-      border-color: darken($brand-primary, 20%);
+      color: rgb(20,20,20);
+      background: $yellow;
+      border-color: transparent;
+      text-shadow: 1.2px 1.2px 2px white;
     }
   }
   &-dropdown-menu {
@@ -127,10 +152,10 @@
   }
 
   hr {
-    height: 12px;
+    height: 25px;
     width: 1px;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin-left: 10px;
-    margin-right: 10px;
+    background-color: rgba(230, 230, 230, 0.5);
+    margin: 0px 10px;
+    border-top: none;
   }
 }
