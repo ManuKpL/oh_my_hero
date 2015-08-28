@@ -23,7 +23,9 @@
             </p>
           </div>
           <div class='reservation-controls'>
-            <i class="fa fa-pencil-square-o reservation-control"></i>
+            <%= link_to hero_reservation_path(reservation.hero_id, reservation.id) do %>
+              <i class="fa fa-eye reservation-control"></i>
+            <% end %>
             <i class="fa fa-trash-o reservation-control"></i>
           </div>
           <%- if reservation.validated %>
