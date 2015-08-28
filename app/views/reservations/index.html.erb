@@ -19,13 +19,14 @@
               </span>
             </h3>
             <p>
-              <%= reservation.check_in.strftime("From %d/%m/%Y") %> <%= reservation.check_out.strftime("to %d/%m/%Y") %> | Price per day: <%= reservation.hero.price %>€
+              <%= reservation.check_in.strftime("From %a %d %b %Y") %> <%= reservation.check_out.strftime("to %a %d %b %Y") %> | Price per day: <%= reservation.hero.price %>€
             </p>
           </div>
           <div class='reservation-controls'>
-            <i class="fa fa-bars reservation-control"></i>
-            <i class="fa fa-star reservation-control"></i>
-            <i class="fa fa-heart reservation-control"></i>
+            <%= link_to hero_reservation_path(reservation.hero_id, reservation.id) do %>
+              <i class="fa fa-eye reservation-control"></i>
+            <% end %>
+            <i class="fa fa-trash-o reservation-control"></i>
           </div>
           <%- if reservation.validated %>
             <span class="validation validation-success"><i class="fa fa-check"></i></span>
