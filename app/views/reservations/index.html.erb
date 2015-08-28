@@ -2,10 +2,11 @@
   <div class="content-background"></div>
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <div class="content-item-title text-center">
-        <h1>Your registred reservations</h1>
+      <div class="content-item-title text-left">
+        <h1>Your bookings:</h1>
       </div>
       <hr class="delimitation-title">
+
       <%- @reservations.each_with_index do |reservation, index| %>
         <div class="reservation">
           <div class="reservation-picture">
@@ -28,14 +29,15 @@
             <% end %>
             <i class="fa fa-trash-o reservation-control"></i>
           </div>
-          <%- if reservation.validated %>
+          <% if reservation.validated %>
             <span class="validation validation-success"><i class="fa fa-check"></i></span>
-            <% else %>
+          <% else %>
             <span class="validation validation-warning"><i class="fa fa-refresh"></i></span>
-          <% end -%>
+          <% end %>
         </div>
+
         <hr class="delimitation">
-      <% end -%>
+        <% end -%>
       </div>
     </div>
   </div>

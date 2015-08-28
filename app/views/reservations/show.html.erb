@@ -1,5 +1,4 @@
 <div class="container-fluid text-center">
-  <div class="content-background"></div>
 
   <!-- thank you message -->
   <div class="container-padded"></div>
@@ -14,16 +13,13 @@
     </div>
   </div>
 
-
-
-
 <!-- Hero information summary -->
       <div class="row">
         <div class="content-item-flex content-item-flex-center">
           <div class="col-xs-12 col-md-4">
             <div class="content-item">
               <div class="profile-picture profile-picture-left", style="background-image: url('<%= @hero.picture.url(:medium) %>')"></div>
-              <h4><%= @hero.name %></h4>
+              <h4 class="reservation-body"><%= @hero.name %></h4>
               <hr>
               <p><%= @hero.description %></p>
               <hr>
@@ -34,17 +30,18 @@
           <!-- Reservation Summary -->
           <div class="col-xs-12 col-md-4">
             <div class="content-item">
-              <% if @reservation.validated %>
-                <span class="validation">Validated</span>
+              <%- if @reservation.validated %>
+                <span class="validation validation-success"><i class="fa fa-check"></i></span>
                 <% else %>
-                <span class="validation">Pending</span>
-              <% end %>
+                <span class="validation validation-warning"><i class="fa fa-refresh"></i></span>
+              <% end -%>
               <hr>
               <h4>Reservation</h4>
               <p><%= @reservation.check_in.strftime("from %d/%m/%Y") %></p>
               <p><%= @reservation.check_out.strftime("to %d/%m/%Y") %></p>
               <hr>
               <p>Price per day: <%= @hero.price %></p>
+              <p>TOTAL PRICE: <%= @hero.price * 3 %> </p>
             </div>
           </div>
 
@@ -63,28 +60,19 @@
 
       </div>
 
+      <div class="row padded">
     <!-- validate reservation -->
-      <div>
-        <%= link_to "Validate reservations", hero_reservation_validation_path(@hero.id, @reservation.id), method: :patch, class: "btn btn-success" %>
-        <%= link_to "See all my reservations", user_reservations_path(@user), class: "btn btn-primary" %>
+        <div>
+          <%= link_to "Validate reservations", hero_reservation_validation_path(@hero.id, @reservation.id), method: :patch, class: "btn btn-primary" %>
+          <%= link_to "See all my reservations", user_reservations_path(@user), class: "btn btn-primary" %>
+        </div>
       </div>
 
-
-    <div class="container-padded"></div>
-
-      <!-- suggestions -->
-
-    <p>While you're at it, why don't you book another hero?</p>
-
-    <div class="carousel">
-      <div><h3>your content</h3></div>
-      <div><h3>your content</h3></div>
-      <div><h3>your content</h3></div>
-    </div>
-
     <!-- go to index -->
-      <p>Or you can consult our super-amazing repository!</p>
-        <%= link_to "Go!", heros_path, class: "btn btn-primary" %>
+    <div class="row">
+        <p>Or you can consult our super-amazing repository!</p>
+          <%= link_to "Go!", heros_path, class: "btn btn-primary" %>
+      </div>
     </div>
       </div>
     </div>
