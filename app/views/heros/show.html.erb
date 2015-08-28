@@ -28,7 +28,7 @@
         <div id="price"><p><%=@hero.price%>€ per day</p></div>
       </div>
       <div class="banner-form">
-            <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
+            <%= simple_form_for :reservation, url: hero_reservations_path(@hero), method: :post do |f| %>
               <div class="content-item-flex content-item-flex-justified">
                 <div class="banner-form-marged">
                   <%= f.input :check_in, label: false, placeholder: "Start date", input_html: { data: {provide: :datepicker} } %>

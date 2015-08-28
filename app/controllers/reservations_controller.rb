@@ -11,10 +11,14 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
-    @reservation.hero = @hero
-    @reservation.validated = false
-    @reservation.customer = current_user
+    check_in_data = reservation_params[:check_in].split("/").map { |e| e.to_i }
+    check_out_data = reservation_params[:check_out].split("/").map { |e| e.to_i }
+    @reservation = Reservation.new({
+          check_in: Date.new(check_in_data[2],check_in_data[0],check_in_data[1]),
+          check_out: Date.new(check_out_data[2],check_out_data[0],check_out_data[1]),
+          user_id: current_user.id,
+          hero_id: @hero.id
+      })
     @reservation.save ? (redirect_to hero_reservation_path(@reservation.hero_id, @reservation.id)) : (render 'heros/show')
   end
 
