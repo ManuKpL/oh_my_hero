@@ -1,52 +1,49 @@
 
 
-<!-- banner -->
-
-<div class="hero-banner text-center" style="background-image: url('<%= @hero.picture.url(:large) %>')">
+<!-- if owner -->
+<%- if current_user.id == @hero.user_id %>
+  <div class="hero-banner" style="background-image: url('<%= @hero.picture.url(:large) %>')">
   <div class="hero-banner-shadow"></div>
-</div>
+    <div class="hero-banner-content">
+      <h2 class="hero-banner-title"><%= @hero.name.upcase %></h2>
+      <div id="description"><p><i>"<%= @hero.description %>"</i></p></div>
+      <div id="skill"><p>For? <%= @hero.skill %></p></div>
+      <div id="price"><p><%=@hero.price%>€ per day</p></div>
 
-<div class="container-fluid">
-
-
-  <%- if current_user.id == @hero.user_id %>
-    <div class="row">
-      <div class="col-xs-12 col-md-4 col-md-offset-2">
-        <h2><%= @hero.name.upcase %></h2>
-        <h3><%= @hero.description %></h3>
-        <h3>For? <%= @hero.skill %></h3>
-        <h3><%=@hero.price%>€ par jour</h3>
-      </div>
+        <div id="links">
+          <%= link_to 'Edit my hero profile', edit_hero_path(@hero.id), class:"btn btn-success" %>
+          <%= link_to "Delete", hero_path(@hero.id), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure?" } %>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-4 col-md-offset-2">
-        <%= link_to 'Edit my hero profile', edit_hero_path(@hero.id), class:"btn btn-success" %>
-        <%= link_to "Delete", hero_path(@hero.id), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure?" } %>
-      </div>
-    </div>
-  <% else %>
-  <div class="row">
-    <div class="col-xs-12 col-md-4 col-md-offset-2">
-      <h2><%= @hero.name.upcase %></h2>
-      <h3><%= @hero.description %></h3>
-      <h3>For? <%= @hero.skill %></h3>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <div class="content-item text-center" style="margin-top: 40px">
-        <%= simple_form_for [@hero, @reservation] do |f| %>
-          <%= f.input :check_in, label: false,  placeholder: "Start date", :input_html => { :data => {:provide => :datepicker} } %>
-          <%= f.input :check_out, label: false, as: :string, placeholder: "End date", :input_html => { :data => {:provide => :datepicker} } %>
-          <%= f.submit method: :post, class: "btn btn-success" %>
-        <%end %>
-        <h3>Price per day: <%= @hero.price%> €</h3>
-          <!-- link to the good picture -->
-        <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
-      </div>
-    </div>
-    <% end -%>
   </div>
 
-    <!-- price on the right -->
+<!-- if customer -->
+  <% else %>
+    <div class="hero-banner" style="background-image: url('<%= @hero.picture.url(:large) %>')">
+      <div class="hero-banner-shadow"></div>
+      <div class="hero-banner-content">
+        <h2 class="hero-banner-title"><%= @hero.name.upcase %></h2>
+        <div id="description"><p><i>"<%= @hero.description %>"</i></p></div>
+        <div id="skill"><p>For? <%= @hero.skill %></p></div>
+        <div id="price"><p><%=@hero.price%>€ per day</p></div>
+      </div>
+      <div class="banner-form">
+            <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
+              <div class="content-item-flex content-item-flex-justified">
+                <div class="banner-form-marged">
+                  <%= f.input :check_in, label: false, placeholder: "Start date", input_html: { data: {provide: :datepicker} } %>
+                </div>
+                <div class="banner-form-marged">
+                  <%= f.input :check_out, label: false, placeholder: "End date", input_html: { data: {provide: :datepicker} } %>
+                </div>
+                <div class="banner-form-marged">
+                  <%= f.button :submit, "Rent me", class: "btn btn-success" %>
+                </div>
+              </div>
+            <% end %>
+      </div>
+    </div>
+  <% end%>
 
 
 <!-- Google Map integration -->
