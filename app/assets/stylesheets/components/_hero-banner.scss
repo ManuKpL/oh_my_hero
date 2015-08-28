@@ -3,19 +3,9 @@
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 200px;
+  padding: 300px;
   position: relative;
   z-index: 1;
-  h1 {
-    font-weight: bold;
-    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  }
-  p {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 3;
-    margin-bottom: 18px;
-  }
   &-shadow {
     background-image: linear-gradient(-225deg, rgba(10,20,30,0.6) 0%, rgba(0,36,61,0.6) 50%);
     position: absolute;
@@ -25,9 +15,36 @@
     right: 0;
     z-index: 2;
   }
+  &-title {
+    letter-spacing: 5px;
+    color: $gray-lighter;
+    text-shadow: 1px 0px 0px;
+  }
   &-content {
-    position: relative;
+    position: absolute;
     z-index: 3;
+    left: 50px;
+    top: 100px;
+    p {
+      letter-spacing: 1px;
+    }
+  }
+
+  #description {
+    padding-top: 15px;
+  }
+
+  #skill {
+    padding-top: 6px;
+  }
+
+  #price {
+    padding-top: 6px;
+  }
+
+  #links {
+    z-index: 3;
+    margin-top: 40px;
   }
 
   .btn {
