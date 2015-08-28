@@ -14,9 +14,8 @@
     a {
       color: white;
     }
-    .btn {
-      background-color: transparent;
-      border: 2px solid rgb(240,240,240);
+    &-navbar-link span {
+      color: black !important;
     }
   }
   &-logo {
@@ -95,13 +94,20 @@
     }
   }
   &-link {
-    color: #929799;
+    color: white;
     font-size: 16px;
     font-weight: light;
     font-family: Montserrat;
+    span {
+      color: lighten($blue, 25%);
+    }
     &:hover {
-      color: $red;
+      color: lighten($blue, 25%);
       text-decoration: none;
+      span {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
   &-button {

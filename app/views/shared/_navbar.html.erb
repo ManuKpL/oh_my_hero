@@ -1,19 +1,19 @@
 <nav class="navbar navbar-fixed <%= params[:action] == "home" ? "navbar-transparent" : "" %>" >
   <div class="container navbar-container">
     <div class="navbar-group">
-      <div class="navbar-item navbar-item-title">
-        <%= link_to root_path do %>
+      <%= link_to root_path, class: "navbar-link" do %>
+        <div class="navbar-item navbar-item-title">
           <p>
-            OH
+            <span>O</span>H
           </p>
           <p>
-            MY
+            <span>M</span>Y
           </p>
           <p>
-            HERO
+            <span>H</span>ERO
           </p>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <div class="navbar-blank">
     </div>
