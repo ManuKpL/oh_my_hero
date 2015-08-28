@@ -103,6 +103,16 @@
         text-decoration: none;
       }
     }
+    &-hero {
+      font-size: 16px;
+      font-weight: light;
+      font-family: Montserrat;
+      color: lighten($blue, 25%);
+      &:hover {
+        color: rgb(100,100,100);
+        text-decoration: none;
+      }
+    }
     &-home {
       color: white;
       font-size: 16px;
@@ -115,6 +125,16 @@
         color: lighten($blue, 25%);
         text-decoration: none;
         span {
+          color: white;
+          text-decoration: none;
+        }
+      }
+      &-hero {
+        font-size: 16px;
+        font-weight: light;
+        font-family: Montserrat;
+        color: lighten($blue, 25%);
+        &:hover {
           color: white;
           text-decoration: none;
         }
