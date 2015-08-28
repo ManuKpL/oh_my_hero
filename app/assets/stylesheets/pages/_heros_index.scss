@@ -1,0 +1,20 @@
+.display-map {
+  position: fixed;
+  top: 70px;
+  bottom: 45px;
+  width: 50%;
+  right: 0;
+}
+
+.title {
+  position: relative;
+  margin: 70px 0px 0px 0px;
+  padding: 1em 0;
+  color: rgb(240,240,240);
+  h2 {
+    font-family: Raleway;
+    letter-spacing: 5px;
+    color: $yellow;
+    text-shadow: 1.2px 1.2px 1px black;
+  }
+}

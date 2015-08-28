@@ -1,51 +1,58 @@
 <!-- display query results -->
 <div class="container-fluid">
   <div class="content-background content-background-dark"></div>
-
   <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <div class="content-item-title text-center">
-        <h1>Your results</h1>
-      </div>
-
-      <div class="row">
-        <div class="content-item-flex">
-          <%- @heros.each do |hero| %>
-            <div class="col-xs-12 col-md-6">
-              <div class="content-item text-center">
-                <div class="content-badge content-badge-right content-badge-yellow"><%= hero.price %> €</div>
-                <div class="row">
-
+    <div class="col-xs-12 col-sm-6">
+      <div class="left-side">
+        <div class="row">
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="title text-center">
+              <h2>YOUR RESULTS</h2>
+            </div>
+            <div class="row">
+              <div class="content-item-flex">
+                <%- @heros.each do |hero| %>
                   <div class="col-xs-12">
-                    <div class="content-picture" style="background-image: url('<%= hero.picture.url(:large) %>')"></div>
+                    <div class="content-item text-center">
+                      <div class="content-badge content-badge-right content-badge-yellow"><%= hero.price %> €</div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="content-picture" style="background-image: url('<%= hero.picture.url(:large) %>')"></div>
+                        </div>
+                        <div class="col-xs-12 content-item-text">
+                          <h3>#<%= hero.name%></h3>
+                          <p><%= hero.description%></p>
+                        </div>
+                      </div>
+                      <%= link_to "", hero_path(hero), class: "content-item-link" %>
+                    </div>
                   </div>
-                  <div class="col-xs-12 content-item-text">
-                    <h3>#<%= hero.name%></h3>
-                    <p><%= hero.description%></p>
-                  </div>
-                </div>
-                <%= link_to "", hero_path(hero), class: "content-item-link" %>
+                <% end -%>
               </div>
             </div>
-          <% end -%>
+          </div>
         </div>
       </div>
-
-      <!-- Google Maps -->
-      <div id="map" style="width: 100%; height: 600px;"></div>
-      <% content_for(:after_js) do %>
-        <%= javascript_tag do %>
-          $(document).on('ready', function() {
-            handler = Gmaps.build('Google');
-            handler.buildMap({ internal: { id: 'map' } }, function(){
-              markers = handler.addMarkers(<%= raw @markers.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-            });
-          })
-        <% end %>
-      <% end %>
-
+    </div>
+    <div class="col-md-6 hidden-xs hidden-sm">
+      <div class="right-side">
+        <!-- Google Maps -->
+        <div class="display-map">
+          <div id="map" style="width: 100%; height: 100%;"></div>
+          <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+              $(document).on('ready', function() {
+                handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function(){
+                  markers = handler.addMarkers(<%= raw @markers.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+              })
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

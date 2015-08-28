@@ -11,9 +11,9 @@
     background-image: image-url('content-background.jpg');
   }
   &-dark {
-    background: -webkit-linear-gradient(left, rgb(40,40,40) 10%, rgb(20,20,20) 90%);
-    background: -moz-linear-gradient(left, rgb(40,40,40) 10%, rgb(20,20,20) 90%);
-    background: linear-gradient(to right, rgb(40,40,40) 10%, rgb(20,20,20) 90%);
+    background: -webkit-linear-gradient(120deg, #080719 30%, #000000 70%);
+    background: -moz-linear-gradient(120deg, #080719 30%, #000000 70%);
+    background: linear-gradient(120deg, #080719 30%, #000000 70%);
   }
 }
 
@@ -23,7 +23,7 @@
   background-color: rgba(250,250,250,0.9);
   border-radius: 3px;
   box-shadow: 1px 1px 1px black;
-  margin: 50px;
+  margin: 0px 20px 50px 20px;
   &-title {
     position: relative;
     margin: 70px 0px 0px 0px;
