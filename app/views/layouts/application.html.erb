@@ -20,9 +20,11 @@
     <%= yield %>
 
     <!-- google map -->
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places" %>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA8aCSTlmjbhPpZyVcZNNBfxMFWvbNhYFw ">
+    </script>
+
     <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
-    <%= javascript_include_tag '"autocomplete.js"' %>
 
 
     <%= javascript_include_tag 'application' %>
