@@ -7,28 +7,42 @@
 </div>
 
 <div class="container-fluid">
+
+
+  <%- if current_user.id == @hero.user_id %>
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-2">
+        <h2><%= @hero.name.upcase %></h2>
+        <h3><%= @hero.description %></h3>
+        <h3>For? <%= @hero.skill %></h3>
+        <h3><%=@hero.price%>€ par jour</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-2">
+        <%= link_to 'Edit my hero profile', edit_hero_path(@hero.id), class:"btn btn-success" %>
+        <%= link_to "Delete", hero_path(@hero.id), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  <% else %>
   <div class="row">
     <div class="col-xs-12 col-md-4 col-md-offset-2">
       <h2><%= @hero.name.upcase %></h2>
       <h3><%= @hero.description %></h3>
-      <h3>Main Skill: <%= @hero.skill %></h3>
+      <h3>For? <%= @hero.skill %></h3>
     </div>
-    <%- if current_user.id == @hero.user_id %>
-      <%= link_to 'Edit my hero profile', edit_hero_path(hero), class:"btn btn-success" %>
-      <%= link_to "Delete", hero_path(hero), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% else %>
-      <div class="col-xs-12 col-md-4">
-        <div class="content-item text-center" style="margin-top: 40px">
-          <%= simple_form_for [@hero, @reservation] do |f| %>
-            <%= f.input :check_in, as: :date %>
-            <%= f.input :check_out, as: :date %>
-            <%= f.submit method: :post, class: "btn btn-success" %>
-          <%end %>
-          <h3>Price per day: <%= @hero.price%> €</h3>
-            <!-- link to the good picture -->
-          <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
-        </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="content-item text-center" style="margin-top: 40px">
+        <%= simple_form_for [@hero, @reservation] do |f| %>
+          <%= f.input :check_in, label: false,  placeholder: "Start date", :input_html => { :data => {:provide => :datepicker} } %>
+          <%= f.input :check_out, label: false, as: :string, placeholder: "End date", :input_html => { :data => {:provide => :datepicker} } %>
+          <%= f.submit method: :post, class: "btn btn-success" %>
+        <%end %>
+        <h3>Price per day: <%= @hero.price%> €</h3>
+          <!-- link to the good picture -->
+        <!-- <div class="profile-picture picture-left" style="background-image: url('<%#= @hero.owner.picture.url(:medium) %>')"></div> -->
       </div>
+    </div>
     <% end -%>
   </div>
 
