@@ -1,5 +1,5 @@
 google.maps.event.addDomListener(window, 'load', function() {
-  initializeAutocomplete('search_address');
+  initializeAutocomplete('user_input_autocomplete_address');
 });
 
 function initializeAutocomplete(id) {
