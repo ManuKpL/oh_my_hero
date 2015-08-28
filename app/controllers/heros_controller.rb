@@ -52,7 +52,7 @@
 
   # Selection method for search in home >> heros index
   def select_heros
-    (search_params[:address] == "") ? (hero_locate = Hero.all) : (heros_locate = Hero.near(search_params[:address], 10))
+    (search_params[:address] == "") ? (heros_locate = Hero.all) : (heros_locate = Hero.near(search_params[:address], 10))
     (search_params[:skill] == "") ? (heros_locate_and_skill = hero_locate) : (heros_locate_and_skill = heros_locate.where(skill: search_params[:skill]))
     (search_params[:check_in] == "") ? (check_in_data = [1,1,3000]) : (check_in_data = search_params[:check_in].split("/").map { |e| e.to_i })
     (search_params[:check_out] == "") ? (check_out_data = [1,1,3000]) : (check_out_data = search_params[:check_out].split("/").map { |e| e.to_i })
