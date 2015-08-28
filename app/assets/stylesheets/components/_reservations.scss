@@ -6,6 +6,14 @@
   &-picture {
     flex: 0 0 91px;
   }
+  &-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
   &-body {
     flex: 1 1 auto;
   }

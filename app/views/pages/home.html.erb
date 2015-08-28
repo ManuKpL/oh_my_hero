@@ -2,14 +2,14 @@
   <div class="banner-shadow"></div>
   <div class="banner-content">
     <h1>oh my hero!</h1>
-    <h3>The only website where you can rent a super hero to help you with your boring everyday tasks</h3>
+    <h3>The only website where you can rent a super hero</h3>
   </div>
   <div class="banner-form">
   <%#= link_to "I WANT ONE",heros_path, {class: "btn btn-primary"} %>
     <%= simple_form_for :search, url: heros_path, method: :get do |f| %>
       <div class="content-item-flex content-item-flex-justified">
         <div class="banner-form-marged">
-          <%= f.input :address, label: false, placeholder: "Where?" %>
+          <%= f.input :address, label: false, placeholder: "Where?", :input_html => { :id => 'user_input_autocomplete_address' } %>
         </div>
         <div class="banner-form-marged">
           <%= f.input :check_in, label: false, placeholder: "Start date", input_html: { data: {provide: :datepicker} } %>
@@ -27,3 +27,6 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA8aCSTlmjbhPpZyVcZNNBfxMFWvbNhYFw ">
+</script>
