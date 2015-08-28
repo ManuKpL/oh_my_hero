@@ -11,12 +11,6 @@
   &-transparent {
     background-color: rgba(200,200,200,0.05);
     color: white;
-    a {
-      color: white;
-    }
-    &-navbar-link span {
-      color: black !important;
-    }
   }
   &-logo {
     width: 50px;
@@ -94,7 +88,7 @@
     }
   }
   &-link {
-    color: white;
+    color: rgb(100,100,100);
     font-size: 16px;
     font-weight: light;
     font-family: Montserrat;
@@ -105,8 +99,25 @@
       color: lighten($blue, 25%);
       text-decoration: none;
       span {
-        color: white;
+        color: rgb(100,100,100);
         text-decoration: none;
+      }
+    }
+    &-home {
+      color: white;
+      font-size: 16px;
+      font-weight: light;
+      font-family: Montserrat;
+      span {
+        color: lighten($blue, 25%);
+      }
+      &:hover {
+        color: lighten($blue, 25%);
+        text-decoration: none;
+        span {
+          color: white;
+          text-decoration: none;
+        }
       }
     }
   }
