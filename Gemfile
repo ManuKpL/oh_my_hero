@@ -32,6 +32,9 @@ gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
 
+# email
+gem "letter_opener", group: :development
+
 # Date Picker
 gem 'bootstrap-datepicker-rails'
 
