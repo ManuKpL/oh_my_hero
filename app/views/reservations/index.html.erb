@@ -1,38 +1,41 @@
-<div class="container-fluid text-center">
+<div class="container-fluid">
   <div class="content-background"></div>
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <div class="content-item content-item-title">
+      <div class="content-item-title text-center">
         <h1>Your registred reservations</h1>
       </div>
-      <div class="row">
-        <div class="content-item-flex">
-          <%- @reservations.each do |reservation| %>
-            <div class="col-xs-12 col-md-4">
-              <div class="content-item">
-                <div class="profile-picture", style="background-image: url('<%= reservation.hero.picture.url(:large) %>')"></div>
-                <h3><%= reservation.hero.name %></h3>
-                <p><%= reservation.hero.description %></p>
-                <hr>
-                <p>Status:</p>
-                <p>
-                  <%- if reservation.validated %>
-                    <span class="validation">Validated</span>
-                    <% else %>
-                    <span class="validation">Pending</span>
-                  <% end -%>
-                </p>
-                <hr>
-                <p>Dates:</p>
-                <p><%= reservation.check_in.strftime("From %d/%m/%Y") %> <%= reservation.check_out.strftime("to %d/%m/%Y") %></p>
-                <hr>
-                <p>Price per day: <%= reservation.hero.price %>€</p>
-                <br>
-                <%= link_to "See more", hero_reservation_path(reservation.hero_id, reservation.id), class: "btn btn-primary" %>
-              </div>
-            </div>
+      <hr class="delimitation-title">
+      <%- @reservations.each_with_index do |reservation, index| %>
+        <div class="reservation">
+          <div class="reservation-picture">
+            <div class='reservation-picture-content', style="background-image: url('<%= reservation.hero.picture.url(:large) %>')"></div>
+          </div>
+          <div class='reservation-body'>
+            <h3>
+              #<%= index + 1 %> - <%= reservation.hero.name %>
+              <span>
+                 | <%= reservation.hero.description %>
+              </span>
+            </h3>
+            <p>
+              <%= reservation.check_in.strftime("From %a %d %b %Y") %> <%= reservation.check_out.strftime("to %a %d %b %Y") %> | Price per day: <%= reservation.hero.price %>€
+            </p>
+          </div>
+          <div class='reservation-controls'>
+            <%= link_to hero_reservation_path(reservation.hero_id, reservation.id) do %>
+              <i class="fa fa-eye reservation-control"></i>
+            <% end %>
+            <i class="fa fa-trash-o reservation-control"></i>
+          </div>
+          <%- if reservation.validated %>
+            <span class="validation validation-success"><i class="fa fa-check"></i></span>
+            <% else %>
+            <span class="validation validation-warning"><i class="fa fa-refresh"></i></span>
           <% end -%>
         </div>
+        <hr class="delimitation">
+      <% end -%>
       </div>
     </div>
   </div>
